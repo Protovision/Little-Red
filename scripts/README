@@ -1,0 +1,109 @@
+
+Character {
+	+ Character(name, color) {
+		Creates a character object.
+		name: Name of the character
+		color: Color for text when name is displayed
+	}
+
+	+ say(message) {
+		Display character's message through dialog until the user clicks.
+		message: The message to display	
+	}
+
+	+ image(tag, filename) {
+		Load an avatar image for this character.
+		tag: tag to associate with the loaded image
+		filename: image file to load
+	}
+
+	+ avatar(tag) {
+		Set character's avatar for when their dialog is displayed.
+		tag: tag name of which image to use
+	}
+}
+
+Scene {
+	+ Scene(filename) {
+		Creates a scene object.
+		filename: image file of background image
+	}
+
+	+ show() {
+		Displays the scene
+	}
+
+	+ animate(animations) {
+		Add animations to the scene.
+		animations:
+			List of animation frames to use.
+			The list consist of a collection of { imagefile, ms }
+			elements where imagefile refers to an image to display 
+			on top of the main background image and ms refers to 
+			how long to display it in milliseconds before showing 
+			the next animation frame.
+	}
+}
+
+Sprite {
+	+ Sprite(name) {
+		Creates a sprite object.
+		name: Name of the sprite
+	}
+
+	+ image(tag, filename) {
+		Load an image for this sprite.
+		tag: tag to associate with the loaded image
+		filename: image file to load
+	}
+
+	+ show(tag, position) {
+		Displays the sprite.
+		tag: Tag of which image to display
+		position: "left", "center left", "center", "center right", or "right"
+	}
+
+	+ hide() {
+		Hide the sprite
+	}
+}
+
+music {
+	Singleton object
+
+	+ play(file, loop, fadein) {
+		Plays a music file.
+		file: Music file to play
+		loop: if true the music will loop (default: true)
+		fadein: number of seconds to fadein from silence (default: 0)
+	}
+
+	+ stop() {
+		Stop the music
+	}
+
+	+ set_volume(volume) {
+		Sets the volume
+	}
+}
+
+sound {
+	Singleton object
+
+	+ play(file, loop, fadein) {
+		Plays a music file.
+		file: Music file to play
+		loop: if true the music will loop (default: true)
+		fadein: number of seconds to fadein from silence (default: 0)
+	}
+
+	+ stop() {
+		Stop the music
+	}
+
+	+ set_volume(volume) {
+		Sets the volume
+	}
+}
+
+
