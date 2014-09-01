@@ -7,3 +7,4 @@ DIALOG_IMAGE = "images/ui/dialog.png"
 
 Call("story/chapter1.lua")
 Call("story/chapter2.lua")
+
