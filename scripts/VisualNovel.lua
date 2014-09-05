@@ -91,7 +91,9 @@ function process_events()
 		end
 		e = event:pull()
 		e:run()
-		if e.kind == "pause" or e.kind == "menu" then break end
+		if e.kind == "pause" or 
+		e.kind == "menu" or
+		e.kind == "dialog" then break end
 	end
 
 end
@@ -104,7 +106,7 @@ function update()
 		end
 	end
 
-	if novel.wait == nil and novel.menu == nil then
+	if novel.wait == nil and novel.menu == nil and novel.dialog == nil then
 		process_events()
 	end
 
@@ -140,12 +142,16 @@ function mousebutton(x, y, button, status)
 		return
 	end
 
-	process_events()
-	repeat
-		e = event:pull()
-		if e == nil then break end
-		e:run()
-	until e.kind == "dialog" or e.kind == "pause" or e.kind == "menu"
+	e = event:peek()
+	if e == nil then return end
+	if e.kind ~= "dialog" and e.kind ~= "menu" then
+		process_events()
+	end
+
+	e = event:pull()
+	if e == nil then return end
+	e:run()
+
 end
 
 function shutdown()

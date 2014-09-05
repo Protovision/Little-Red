@@ -128,6 +128,52 @@ black:show()
 narrator:say("We both head out to see the Chief and I'm ready to start my job as a psychic detective. I'm stil very nervous, but I'm glad I have Grandma and Diana, though. With them by my side, it won't be so bad.")
 narrator:say("Even so, I've been having strange dreams lately before I came here. I hope there's nothing to them...")
 
+-- MORE CONTENT HERE
+
+black:show()
+c = Character("Chief", "0x3f3f0000")
+chief = Sprite("Chief")
+chief:image("normal", "images/sprites/Chief_normal.png")
+chief:image("smile", "images/sprites/Chief_smile.png")
+chief:image("smile2", "images/sprites/Chief_smile_2.png")
+
+novel:choice( {
+	{ "Maybe I shouldn't her everything",
+		function()
+			lrs:show("normal", "left", 0.5)
+			diana:show("worried2", "right", 0.5)
+			narrator:say("I just get these really strong hunches sometimes! Like the time I found Mr. Finnegan's goat in that shed.")
+			d:say("Oh, that's right. Sorry, it must have slipped my mind!")
+			lr:say("Right, ahah.")
+		end
+	},
+	{ "I'll tell her",
+		function()
+			lrs:show("smile", "left", 0.5)
+			diana:show("smile", "right", 0.5)
+			narrator:say("I get hunches about people sometimes, and then other times I get these really weird dreams... Like, you remember Mr. Finnegan's goat? I dreamed him accidentally locking himself in the shed, like I was the goat or something.")
+			d:say("Become one with the goat!")
+			lr:say("D oh my god")
+		end
+	}
+} )
+
+diana:show("normal", "right")
+d:say("Oh, here comes the Chief now.")
+diana:show("smile", "right")
+d:say("You do you LR, that's what we recruited you for!")
+lrs:show("smile", "left")
+lr:say("Heck yeah!")
+lrs:hide(0.5)
+chief:show("smile2", "right", 0.5)
+diana:show("smile", "left")
+c:say("Ah, Diana, you're early")
+d:say("Of course! Chief Snookerbottom, this is Rose.")
+chief:show("smile", "right")
+c:say("Of course, of course! Diana tells me you've been particularly helpful around your community.")
+lr:say("I like to think so!")
+narrator:say("I hold out my hand to shake his, and without blinking he slides an orientation packet into my hand. Okay, likes to stay on task, I suppose.")
+c:say("Welcome to Homicide, Miss Red.")
 
 
 

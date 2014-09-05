@@ -49,3 +49,5 @@ black:show()
 sound:play("sounds/effects/CarArrivingFootsteps.wav")
 narrator:say("The taxi stops and I can see my grandma standing outside of the entrance of her apartment building.")
 sound:stop()
+
+

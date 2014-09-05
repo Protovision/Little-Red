@@ -7,7 +7,9 @@ local function push(self, event)
 end
 
 local function rewind(self)
+	if self.timeline == nil then return end
 	while self.timeline:size() == 0 do
+		if self.universes:size() == 1 then return end
 		self.universes:pop()
 		self.timeline = self.universes:peek()
 	end
